@@ -34,7 +34,7 @@ public class CuentaController {
         return cuentaRepository.findAll();
     }
     
-  /**  @GetMapping
+   /**  @GetMapping
     public ResponseEntity<List<CuentasEntidad>> getAllAccounts(){
         List<CuentasEntidad> cuentasEntidades = cuentaRepository.findAll();
         ResponseEntity<List<CuentasEntidad>> responseEntity = new ResponseEntity<>(cuentasEntidades,HttpStatus.OK);
