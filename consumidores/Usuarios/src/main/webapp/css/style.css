@@ -1,0 +1,252 @@
+/* 
+    style.css
+    ricardo javier saavedra negrete 229351 
+*/
+
+/*
+modifica todo el texto dentro del body a arial
+*/
+body {
+    font-family: Arial sans-serif;
+    margin: 0;
+    padding: 0;
+    
+}    
+
+/*.contenedor {
+    display: grid;
+    grid-template-rows: 152px calc(100vh - 268px) 100px;
+    grid-template-columns: 221px calc(100vw - 201px);
+    background: burlywood;
+}*/
+
+/*
+modifica el tamaño de los encabezados ademas de darle formatos
+fuentes y colores
+*/
+header{
+    /*grid-column: 1/ span 2 ;
+    border-bottom: 1px solid Silver;
+    */
+    
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 140px;
+    width: 100%;
+    border: 1px solid Silver;
+    text-align: center;
+    
+    background: crimson;
+}
+
+/*
+mueve la imagen del logo que se encuentra en el header hacia la esquina
+izquierda del mismo
+*/
+img#rsn{
+    float: left; 
+}
+
+/*
+le da formato al fondo del nav ademas de setear las fuentes dentro del mismo
+*/
+nav {
+    border-right: 1px solid Silver;
+    font-family: Arial sans-serif;
+    font-size: 14px;
+}
+
+/*
+le da formato al main de las paginas ajustandole fuentes, tamaño, posicion
+y la propiedad overflow para el contenido de la misma
+*/
+main {
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    height: calc(100% - 151px);
+    width: calc(100% - 154px);
+    top: 141px;
+    left: 152px;
+   
+    background-color: lightgray;
+    overflow: scroll;
+}
+
+.resultadosId > label{
+     top: 141px;
+    left: 152px;
+}
+
+/*
+    ajusta los diferentes parametros del pie de pagina
+*/
+footer {
+    /*grid-column: 1 / span 2;*/
+    text-align: center;
+  
+    background-color: bisque;
+    font-family: Arial, Helvetica, sans-serif;
+    position:absolute;
+    top: 99%;
+    left: 0%;
+    
+    width: 100%;
+     
+    
+}
+
+/*
+setea el nav con nuevos valores esteticos de fuentes ademas de poner el contenido
+in line block y añadir un nuevo tamaño y posicion cosa que no se hacia antes
+*/
+nav {
+    
+    display: inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: crimson;
+    position: absolute;
+    top: 142px;
+    left: 0;
+    line-height: 2em;
+    height: 2em;
+    width: 150px;
+    height: calc(100% - 151px);
+    border: 1px solid Silver;
+
+}
+
+/*
+ajusta el formato, fuente y color del fondo de los elementos del navegador
+*/
+nav button{
+
+    display: block;
+    text-decoration: none;
+    margin: 0px;
+    background-color:orchid;
+    border-bottom: 1px solid silver;
+    border-top: 1px solid silver;
+    width: 100%;
+    height: 50px;
+    color: white ;
+    text-decoration:none;   
+}
+
+/*
+hace que los elementos del navegador se pongan en negritas despues pasar
+el cursor por encima
+*/
+nav button:hover{
+    font-weight: bold;
+}
+
+/*
+ajusta grid container para los formularios de las paginas que lo necesiten
+*/
+.contenedorFormulario{
+    display:grid;
+   
+    margin: auto;    
+    grid-template-columns: 37% 150px;
+    gap: 5px;    
+    
+    
+}
+
+/*
+ajusta el texto de los elementos del contenedor de formulario a la derecha
+*/
+.contenedorFormulario {
+    text-align: right
+}
+
+/*
+ajusta campos en blanco para alinear los formularios
+*/
+.contenedorFormulario > div.span {
+    grid-column: 1 / span 3;
+}
+
+/*
+ajusta la posicion de los botones 
+*/
+.contenedorFormulario > div.botones{
+   grid-template-columns: 45% 50px
+}
+
+
+/*
+centra el encabezado de nivel 1 que se encuentra dentro del main al centro
+del mismo
+*/
+main > h1{
+    text-align: center;
+  
+}
+
+
+/*
+ajusta block para la tabla ademas de ajustarla en una posicion centrada
+*/
+table{
+  display:block;
+  border: 1px;
+  margin-right: 50%;
+  margin-left: 30%;
+  border-color: black;
+}
+
+/*
+ajusta el borde para los que pertenezcan a la clase centrada
+*/
+table.centrado{
+  display:block;
+  
+  border: 1px;
+}
+
+
+/*
+ajusta el color de fondo de las cabezeras de las tablas
+*/
+th{
+    background-color: crimson;
+}
+
+/*
+ajusta el color de fondo de los campos de las tablas
+*/
+tr{
+    background-color: beige; 
+}
+
+/*
+centra la tabla pequeña o tablas que necesiten centrarse de otra manera
+*/
+table.centradoEspecial1{
+    margin-right: 50%;
+    margin-left: 45%;
+}
+
+/* 
+div.msjError{
+  color: red;
+  text-align: right;
+  padding-left: 5px;
+}
+
+div.msjAviso {
+  color: green;
+  white-space: pre;
+  padding-left: 5px;
+}
+
+th.error {
+    text-align: center;
+    padding-right: 5px; 
+    border-style: none;
+}
+*/
