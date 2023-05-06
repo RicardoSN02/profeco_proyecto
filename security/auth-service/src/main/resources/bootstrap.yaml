@@ -10,3 +10,5 @@ spring:
             uri: mongodb://localhost:27017/usuariosdb 
 jwt: 
     secret: secret
+    
+    
