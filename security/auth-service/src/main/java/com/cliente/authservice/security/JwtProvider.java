@@ -25,7 +25,7 @@ import org.springframework.stereotype.Component;
 public class JwtProvider {
     
 
-    @Value("${JWT_SECRET.secret}")
+    @Value("${jwt.secret}")
     private String secret;
     
     @PostConstruct
