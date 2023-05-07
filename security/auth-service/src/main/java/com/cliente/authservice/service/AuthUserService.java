@@ -33,7 +33,7 @@ public class AuthUserService {
     
     public AuthUser save(AuthUserDTO dto){
         Optional<AuthUser> user = authUserRepository.findByUserName(dto.getUserName());
-        if(!user.isPresent())
+        if(user.isPresent())
             return null;
         
         String password = passwordEncoder.encode(dto.getPassword());
