@@ -2,16 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.cliente.authservice.entity;
+package com.cliente.authservice.dt;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
  *
@@ -19,16 +15,20 @@ import org.springframework.data.mongodb.core.mapping.Document;
  */
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(value= "user")
 @Getter
 @Setter
-@Builder
-public class AuthUser {
+public class RequestDto {
     
-    @Id
-    private String id;
-    private String userName;
-    private String password;
-    private String role;
+    private String uri;
+    private String method;
+
+    public String getUri() {
+           return uri;
+    }
+
+    public String getMethod() {
+        return method;
+    }
+    
     
 }

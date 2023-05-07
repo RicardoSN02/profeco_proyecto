@@ -15,6 +15,6 @@ import org.springframework.stereotype.Repository;
  * @author rjsaa
  */
 @Repository
-public interface AuthUserRepository extends MongoRepository<AuthUser,Integer>{
-    Optional<AuthUser> findByUserName(String username);
+public interface AuthUserRepository extends MongoRepository<AuthUser,String>{
+    Optional<AuthUser> findByUserName(String userName);
 }

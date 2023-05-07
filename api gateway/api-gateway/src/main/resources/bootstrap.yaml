@@ -23,12 +23,12 @@ spring:
                     - Path=/api/cuentas/**
                 filters: 
                     - AuthFilter
-                        
               - id: productos-microservicio
                 uri: lb://PRODUCTOS-MICROSERVICIO
                 predicates:
                     - Path=/api/productos/**
-                    
+                filters: 
+                    - AuthFilter    
               - id: auth-service
                 uri: lb://AUTH-SERVICE
                 predicates:

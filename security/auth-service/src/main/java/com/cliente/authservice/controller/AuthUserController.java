@@ -5,6 +5,8 @@
 package com.cliente.authservice.controller;
 
 import com.cliente.authservice.dt.AuthUserDTO;
+import com.cliente.authservice.dt.NewUserDto;
+import com.cliente.authservice.dt.RequestDto;
 import com.cliente.authservice.dt.TokenDto;
 import com.cliente.authservice.entity.AuthUser;
 import com.cliente.authservice.service.AuthUserService;
@@ -39,8 +41,8 @@ public class AuthUserController {
     }
     
     @PostMapping("/validate")
-    public ResponseEntity<TokenDto> validate(@RequestParam String token){
-        TokenDto tokenDto = authUserService.validate(token);
+    public ResponseEntity<TokenDto> validate(@RequestParam String token,@RequestBody RequestDto dto){
+        TokenDto tokenDto = authUserService.validate(token,dto);
         if(tokenDto == null){
             return ResponseEntity.badRequest().build();
         }
@@ -49,7 +51,7 @@ public class AuthUserController {
     }
     
     @PostMapping("/create")
-    public ResponseEntity<AuthUser> create(@RequestBody AuthUserDTO dto){
+    public ResponseEntity<AuthUser> create(@RequestBody NewUserDto dto){
         AuthUser auth = authUserService.save(dto);
         if(auth == null){
             return ResponseEntity.badRequest().build();
