@@ -20,13 +20,25 @@ public class pruebas {
     public static void main(String[] args) {
         // TODO code application logic here
         Consultas consultas = new Consultas();
+        //añade un producto
+        Productos producto = new Productos();
+        List<Productos> productos = consultas.consultaProductos();
+//        producto.setId((productos.size()+1)+"");
+//        producto.setDescripcion("Es un libro");
+//        producto.setNombre("cuaderno");
+
+        //consultas.agregarProducto(producto);
         //consulta productos
-        List<Productos> productos =consultas.consultaProductos();
-        
-        for (Productos x:productos){
-            System.out.println(x);
+        productos = consultas.consultaProductos();
+        if (productos != null) {
+            for (Productos x : productos) {
+                System.out.println(x);
+            }
+
+        } else {
+            System.out.println("La lista de productos es nula");
         }
-        
+
         //añade un comentario
 //        Comentario comentario = new Comentario();
 //       
@@ -35,7 +47,11 @@ public class pruebas {
 //        comentario.setCalificacion(1);
 //        
 //        consultas.agregarComentario(comentario);
-        
+//        
+//        List<Comentario> comentarioList =consultas.consultaComentario();
+//        for (Comentario x:comentarioList){
+//            System.out.println(x);
+//        }
     }
-    
+
 }

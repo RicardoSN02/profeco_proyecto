@@ -5,11 +5,14 @@
 package acciones;
 
 import com.google.gson.Gson;
+import consultas.Consultas;
+import entidades.Productos;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,18 +39,21 @@ public class ObtenProductos extends HttpServlet {
         
         Gson gson= new Gson();
         
-        //ArrayList<Revista> listaRevistas = null;
+        List<Productos> listaProductos = null;
         
         response.setContentType("application/json");
         
-        //listaRevistas = fachada.consultarRevistas();
+        Consultas con = new Consultas();
         
-       // String listaRevistasJson= gson.toJson(listaRevistas);
+        listaProductos = con.consultaProductos();
+        
+        String listaProductosJson= gson.toJson(listaProductos);
         
         try(PrintWriter out = response.getWriter()){
-           // out.println(listaRevistasJson);
+           out.println(listaProductosJson);
             out.flush();
         }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

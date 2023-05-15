@@ -47,7 +47,7 @@ public class Consultas {
         String URL = "http://localhost:8500/api/productos";
         
         try{
-            Client client =ClientBuilder.newClient();
+            Client client = ClientBuilder.newClient();
             
             WebTarget target = client.target(URL);
 
@@ -65,10 +65,68 @@ public class Consultas {
 
             List<Productos> productos = gson.fromJson(res, listType);
             
+           
             return productos;
             
         }catch(Exception e){
             System.out.println("error al recibir productos");
+            return null;
+        }
+    }
+    
+//    public void agregarProducto(Productos producto){
+//        String res = "";
+//        String URL = "http://localhost:8500/api/productos";
+//        
+//        try{
+//            Client client = ClientBuilder.newClient();
+//            
+//            WebTarget target = client.target(URL);
+//
+//            Invocation.Builder solicitud = target.request();
+//
+//            Gson gson = new Gson();
+//            String jsonString = gson.toJson(producto);
+//            
+//            Response post = solicitud.post(Entity.json(jsonString));
+//            
+//            String responseJson = post.readEntity(String.class);
+//                    
+//            System.out.println(responseJson);   
+//            
+//        }catch(Exception e){
+//            System.out.println("error al agregar productos");
+//             e.printStackTrace();
+//        }
+//    }
+    
+    public List<Comentario> consultaComentario(){
+        String res = "";
+        String URL = "http://localhost:8087/api/comentarios";
+        
+        try{
+            Client client =ClientBuilder.newClient();
+            
+            WebTarget target = client.target(URL);
+
+            Invocation.Builder solicitud = target.request();
+
+            Gson gson = new Gson();
+            
+            Response get = solicitud.get();
+            
+            String responseJson = get.readEntity(String.class);
+                    
+            res = responseJson;
+            
+            Type listType = new TypeToken<List<Comentario>>() {}.getType();
+
+            List<Comentario> comentario = gson.fromJson(res, listType);
+            
+            return comentario;
+            
+        }catch(Exception e){
+            System.out.println("error al recibir comentarios");
             return null;
         }
     }
