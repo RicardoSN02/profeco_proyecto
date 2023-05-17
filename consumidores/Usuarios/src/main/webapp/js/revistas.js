@@ -258,7 +258,7 @@ function despliegaProductos() {
     // Arreglo con los encabezados de la tabla de la lista
     // de generos
 
-    let encabezados = ["id", "nombre", "descripcion", "precio"];
+    let encabezados = ["id", "nombre", "descripcion", "precio", "Comentario"];
     if (peticion_http.readyState === READY_STATE_RESONSE_READY) {
         if (peticion_http.status === REQUEST_STATUS_OK) {
             // Convierte el arreglo Json de generos 

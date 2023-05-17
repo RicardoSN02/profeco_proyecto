@@ -112,10 +112,19 @@ function despliegaTabla(padreId, titulo, encabezados, datos) {
         for (let llave in dato) {
             // Crea una celda
             let celda = document.createElement("td");
-            // Agrega el texto de la celda
-            celda.innerHTML = dato[llave];
-            // Agrega la celda al renglon
-            renglon.appendChild(celda);
+            if (llave === "Comentario") {
+                // Crear elemento de imagen
+                let imagen = document.createElement("img");
+                imagen.src = "/img/comment.jpg"; // Establecer la URL de la imagen
+                imagen.alt = "Comentario"; // Establecer texto alternativo para la imagen
+                imagen.addEventListener("click", function() {
+                    // Llamar a la función deseada al hacer clic en la imagen
+                    capturaComentario();
+                });
+                celda.appendChild(imagen);
+            } else {
+                celda.innerHTML = dato[llave];
+            }
         }
     }
 }
