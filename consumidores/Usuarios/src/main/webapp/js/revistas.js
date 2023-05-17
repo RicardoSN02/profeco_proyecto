@@ -253,7 +253,7 @@ function despliegaProductos() {
     // medio de los generos de la lista
     let titulo = null;
     let revistas = null;
-    titulo = "Todos los productos";
+    titulo = "Todas las Revistas";
 
     // Arreglo con los encabezados de la tabla de la lista
     // de generos
