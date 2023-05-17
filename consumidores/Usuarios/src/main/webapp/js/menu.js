@@ -13,7 +13,6 @@ let READY_STATE_RESONSE_READY = 4;
 
 let REQUEST_STATUS_OK = 200;
 
-let peticion_http;
 
 // Opciones del menu principal de la aplicacion 
 let menuPrincipalItems = ["Ofertas", "Productos", "Preferencias", "Wishlist"];

@@ -8,4 +8,12 @@
             30
         </session-timeout>
     </session-config>
+    <servlet>
+        <servlet-name>ObtenProductos</servlet-name>
+        <servlet-class>acciones.ObtenProductos</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ObtenProductos</servlet-name>
+        <url-pattern>/ObtenProductos</url-pattern>
+    </servlet-mapping>
 </web-app>

@@ -5,12 +5,17 @@
 package acciones;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import consultas.Consultas;
-import entidades.Productos;
+import entidades.Comentario;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,10 +24,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author rjsaa
+ * @author Alexandra
  */
-@WebServlet(name = "ObtenProductos", urlPatterns = {"/ObtenProductos"})
-public class ObtenProductos extends HttpServlet {
+@WebServlet(name = "AgregaComentario", urlPatterns = {"/AgregaComentario"})
+public class AgregaComentario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,26 +40,7 @@ public class ObtenProductos extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        
-        Gson gson= new Gson();
-        
-        List<Productos> listaProductos = null;
-        
-        response.setContentType("application/json");
-        
-        Consultas con = new Consultas();
-        
-        listaProductos = con.consultaProductos();
-        
-        String listaProductosJson= gson.toJson(listaProductos);
-        
-        try(PrintWriter out = response.getWriter()){
-            out.println();
-           out.println(listaProductosJson);
-            out.flush();
-        }
-        
+       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -66,10 +52,41 @@ public class ObtenProductos extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+          //      processRequest(request, response);
+            Gson gson = new Gson();
+            List<Comentario> lista = null;
+            
+            
+            response.setContentType("application/json");
+            String isbn = request.getParameter("isbn");
+            String titulo = request.getParameter("titulo");
+            String editorial = request.getParameter("editorial");
+            String clasificacion= request.getParameter("clasificacion");
+            String periodicidad = request.getParameter("periodicidad");
+            String fecha= request.getParameter("fecha");
+            
+            
+            SimpleDateFormat formato = new SimpleDateFormat("yyyy-dd-MM");
+         
+            String listaJson = null;
+            // Crea el objeto para acceder a la base de datos
+            
+            Comentario revista  = new Comentario();
+            revista.setId(isbn);
+            revista.setId_producto(titulo);
+            revista.setComentario(editorial);
+            revista.setCalificacion(1);
         
+            Consultas con = new Consultas();
+        
+            con.agregarComentario(revista);
+            try (PrintWriter out = response.getWriter()) {
+                out.println(listaJson);   
+                out.flush();
+            }
     }
 
     /**
@@ -80,9 +97,10 @@ public class ObtenProductos extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
     }
 
     /**

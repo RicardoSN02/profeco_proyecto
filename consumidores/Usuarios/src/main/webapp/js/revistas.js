@@ -7,6 +7,7 @@
 
 var tipoMedio;
 var Isbn;
+let peticion_http;
 
 /**
  * Esta funcion despliega un formulario para capturar un comentario
@@ -217,7 +218,6 @@ function validaFormulario() {
             despliegaProductos();
     }
 }
-
 /**
  * Funcion de respuesta para procesar la respuesta a la 
  * solicitud asincrona al servidor para obtener la lista
@@ -228,7 +228,6 @@ function obtenProductos() {
 
     // Se instancia el objeto XMLHttpRequest
     peticion_http = new XMLHttpRequest();
-
     // Preparar la funcion de respuesta
     peticion_http.onreadystatechange = despliegaProductos;
 
@@ -241,7 +240,7 @@ function obtenProductos() {
 }
 
 
-   /**
+/**
  * Funcion de respuesta para procesar la respuesta a la 
  * solicitud asincrona al servidor para obtener la lista
  * de revistas. Despliega la lista de revistas 
