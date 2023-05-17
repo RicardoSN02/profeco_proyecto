@@ -29,6 +29,11 @@ spring:
                 predicates:
                     - Path=/api/productos/**
                     
+              - id: comentarios-microservicio
+                uri: lb://COMENTARIOS-MICROSERVICIO
+                predicates:
+                    - Path=/api/comentarios/**
+                    
               - id: auth-service
                 uri: lb://AUTH-SERVICE
                 predicates:

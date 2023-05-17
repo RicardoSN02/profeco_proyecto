@@ -107,12 +107,18 @@ function despliegaTabla(padreId, titulo, encabezados, datos) {
         let renglon = document.createElement("tr");
         // agrega el renglon a la tabla
         tabla.appendChild(renglon);
-
+        var contador = 0;
         // Para cada miembro de cada objeto
         for (let llave in dato) {
+            console.log("llave");
             // Crea una celda
             let celda = document.createElement("td");
-            if (llave === "Comentario") {
+            // Agrega el texto de la celda
+            celda.innerHTML = dato[llave];
+            // Agrega la celda al renglon
+            renglon.appendChild(celda);
+            contador += 1;
+            if (contador === 5) {
                 // Crear elemento de imagen
                 let imagen = document.createElement("img");
                 imagen.src = "/img/comment.jpg"; // Establecer la URL de la imagen

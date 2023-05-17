@@ -40,18 +40,18 @@ public class pruebas {
         }
 
         //añade un comentario
-//        Comentario comentario = new Comentario();
-//       
-//        comentario.setId_producto("");
-//        comentario.setComentario("no me gusto");
-//        comentario.setCalificacion(1);
-//        
-//        consultas.agregarComentario(comentario);
-//        
-//        List<Comentario> comentarioList =consultas.consultaComentario();
-//        for (Comentario x:comentarioList){
-//            System.out.println(x);
-//        }
+        Comentario comentario = new Comentario();
+       
+        comentario.setId_producto("");
+        comentario.setComentario("no me gusto");
+        comentario.setCalificacion(1);
+        
+        consultas.agregarComentario(comentario);
+        
+        List<Comentario> comentarioList =consultas.consultaComentario();
+        for (Comentario x:comentarioList){
+            System.out.println(x);
+        }
     }
 
 }

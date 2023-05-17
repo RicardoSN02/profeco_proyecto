@@ -258,7 +258,7 @@ function despliegaProductos() {
     // Arreglo con los encabezados de la tabla de la lista
     // de generos
 
-    let encabezados = ["id", "nombre", "descripcion", "precio", "Comentario"];
+    let encabezados = ["id", "nombre", "descripcion", "precio", "comentario"];
     if (peticion_http.readyState === READY_STATE_RESONSE_READY) {
         if (peticion_http.status === REQUEST_STATUS_OK) {
             // Convierte el arreglo Json de generos 
@@ -274,3 +274,57 @@ function despliegaProductos() {
 }
 
 
+/**
+ * Funcion de respuesta para procesar la respuesta a la 
+ * solicitud asincrona al servidor para obtener la lista
+ * de revistas. Despliega la lista de revistas 
+ */
+function ObtenComentarios() {
+    //   tipoMedio = document.getElementById("tipoMedioId").value;
+
+    // Se instancia el objeto XMLHttpRequest
+    peticion_http = new XMLHttpRequest();
+    // Preparar la funcion de respuesta
+    peticion_http.onreadystatechange = despliegaComentarios;
+
+    // Realizar peticion HTTP. Le envia en el URL el parametro con
+    // el tipo de medio deseado de la lista de revistas
+    if (peticion_http) {
+        peticion_http.open('GET', 'ObtenComentarios', true);
+        peticion_http.send(null);
+    }
+}
+
+
+/**
+ * Funcion de respuesta para procesar la respuesta a la 
+ * solicitud asincrona al servidor para obtener la lista
+ * de revistas. Despliega la lista de revistas 
+ */
+function despliegaComentarios() {
+
+    borraHijos("mainId");
+
+    // Establece el titulo de la tabla de acuerdo al tipo de
+    // medio de los generos de la lista
+    let titulo = null;
+    let revistas = null;
+    titulo = "Todas las Revistas";
+
+    // Arreglo con los encabezados de la tabla de la lista
+    // de generos
+
+    let encabezados = ["id", "id_producto", "comentario", "calificación"];
+    if (peticion_http.readyState === READY_STATE_RESONSE_READY) {
+        if (peticion_http.status === REQUEST_STATUS_OK) {
+            // Convierte el arreglo Json de generos 
+            // a un arreglo JavaScript de generos
+            let revistasm = JSON.parse(peticion_http.responseText);
+            
+                // Despliega la tabla con la lista de generos
+                despliegaTabla("mainId", titulo, encabezados, revistasm);
+            
+        }
+    }
+
+}

@@ -15,11 +15,11 @@ let REQUEST_STATUS_OK = 200;
 
 
 // Opciones del menu principal de la aplicacion 
-let menuPrincipalItems = ["Ofertas", "Productos", "Preferencias", "Wishlist"];
+let menuPrincipalItems = ["Ofertas", "Productos", "Preferencias", "Comentarios", "Wishlist"];
 
 // Funciones que implementan las operaciones de las opciones
 // del menu principal de la aplicacion 
-let menuPrincipalFunciones = ["","obtenProductos()", "", ""];
+let menuPrincipalFunciones = ["","obtenProductos()","", "ObtenComentarios()", ""];
                           
 // Opciones del menu de las operaciones con las revistas 
 let menuRevistasItems = ["Agregar revistas","Consultar revistas","Consulta revista",
