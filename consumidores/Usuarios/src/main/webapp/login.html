@@ -47,6 +47,32 @@
                         
                         <button type="submit" title="Ingresar" name="Ingresar">Login</button>
                     </form>
+                    
+<script>
+    // Agrega un controlador de eventos para el evento submit del formulario
+    document.getElementById("loginform").addEventListener("submit", function (event) {
+        event.preventDefault(); // Evita que el formulario se envíe automáticamente
+
+        // Obtiene los valores del formulario
+        var usuario = document.getElementById("loginform").elements.usuario.value;
+        var password = document.getElementById("loginform").elements.password.value;
+
+        // Realiza la lógica de inicio de sesión aquí
+        // Puedes enviar los datos a tu servicio de autenticación y manejar la respuesta
+
+        // Ejemplo básico de verificación de usuario y contraseña
+        if (usuario === "admin" && password === "123456") {
+            // Inicio de sesión exitoso
+            alert("Inicio de sesión exitoso");
+            // Aquí puedes redirigir al usuario a otra página o realizar otras acciones
+            // Redirige al usuario a index.html
+            window.location.href = "index.html";
+        } else {
+            // Credenciales incorrectas
+            alert("Usuario o contraseña incorrectos");
+        }
+    });
+</script>
                     <div class="pie-form">
                         <a href="#">¿Perdiste tu contraseña?</a>
                         <a href="#">¿No tienes Cuenta? Registrate</a>
