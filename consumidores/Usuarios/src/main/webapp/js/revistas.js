@@ -218,6 +218,7 @@ function validaFormulario() {
             despliegaProductos();
     }
 }
+
 /**
  * Funcion de respuesta para procesar la respuesta a la 
  * solicitud asincrona al servidor para obtener la lista

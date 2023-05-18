@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import entidades.AuthUserDTO;
 import entidades.Comentario;
 import entidades.Productos;
 import java.io.BufferedWriter;
@@ -67,6 +68,34 @@ public class Consultas {
             
            
             return productos;
+            
+        }catch(Exception e){
+            System.out.println("error al recibir productos");
+            return null;
+        }
+    }
+    
+    public String login(AuthUserDTO user){
+        
+        String res = "";
+        String URL = "http://localhost:8500/auth/login";
+        
+        try{
+            Client client = ClientBuilder.newClient();
+            
+            WebTarget target = client.target(URL);
+
+            Invocation.Builder solicitud = target.request();
+
+            Gson gson = new Gson();
+            
+            String jsonString = gson.toJson(user);
+    
+            Response post = solicitud.post(Entity.json(jsonString));
+            
+            String responseJson = post.readEntity(String.class);
+                    
+            return responseJson;
             
         }catch(Exception e){
             System.out.println("error al recibir productos");

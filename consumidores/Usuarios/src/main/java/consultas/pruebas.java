@@ -4,6 +4,7 @@
  */
 package consultas;
 
+import entidades.AuthUserDTO;
 import entidades.Comentario;
 import entidades.Productos;
 import java.util.List;
@@ -29,28 +30,36 @@ public class pruebas {
 
         //consultas.agregarProducto(producto);
         //consulta productos
-        productos = consultas.consultaProductos();
-        if (productos != null) {
-            for (Productos x : productos) {
-                System.out.println(x);
-            }
-
-        } else {
-            System.out.println("La lista de productos es nula");
-        }
-
-        //añade un comentario
-        Comentario comentario = new Comentario();
-       
-        comentario.setId_producto("");
-        comentario.setComentario("no me gusto");
-        comentario.setCalificacion(1);
-        
-        consultas.agregarComentario(comentario);
-        
-        List<Comentario> comentarioList =consultas.consultaComentario();
-        for (Comentario x:comentarioList){
-            System.out.println(x);
+//        productos = consultas.consultaProductos();
+//        if (productos != null) {
+//            for (Productos x : productos) {
+//                System.out.println(x);
+//            }
+//
+//        } else {
+//            System.out.println("La lista de productos es nula");
+//        }
+//
+//        //añade un comentario
+//        Comentario comentario = new Comentario();
+//       
+//        comentario.setId_producto("");
+//        comentario.setComentario("no me gusto");
+//        comentario.setCalificacion(1);
+//        
+//        consultas.agregarComentario(comentario);
+//        
+//        List<Comentario> comentarioList =consultas.consultaComentario();
+//        for (Comentario x:comentarioList){
+//            System.out.println(x);
+//        }
+        AuthUserDTO user = new AuthUserDTO();
+        user.setUserName("root");
+        user.setPassword("root");
+        String token = consultas.login(user);
+        System.out.println(token);
+        if (token.equals("")) {
+            System.out.println("token vacio");
         }
     }
 
